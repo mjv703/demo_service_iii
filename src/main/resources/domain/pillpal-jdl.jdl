@@ -1,0 +1,159 @@
+enum TakenStatus {
+    TAKEN, NOT_TAKEN
+}
+
+enum MedicType {
+    OTHER , INJECTION, ORAL
+}
+
+enum PrescriptionStatusType {
+	ACTIVE, INACTIVE
+}
+
+enum BloodType{
+	A_p, A_n,  B_p, B_n,  O_p, O_n,  AB_p, AB_n
+}
+
+enum MedicAppearanceType {
+	TABLET,
+    CAPSULE,
+    INJECTABLE,
+    LIQUID,
+    SYRUP,
+    POWDER,
+    CREAM,
+    SOLUTION,
+    SUPPOSITORY,
+    SUSPENSION,
+    JELLY,
+    LOTION ,
+    EMULSION ,
+    AEROSOL,
+    PASTE ,
+    SPRAY
+}
+
+enum ColorContentType {
+	C_RED,
+    C_BLUE,
+    C_GREEN
+    C_GREY,
+    C_BROWN,
+    C_YELLOW,
+    C_BLUE,
+    C_BLACK,
+    C_WHITE,
+    C_PURPLE
+}
+
+enum MaritalStatusType {
+    SINGLE
+}
+
+entity UserInfo {
+    userCode String unique,
+	phoneNumber1 String,
+    phoneNumber2 String,
+    address String
+}
+
+entity PatientInfo {
+	firstName String required,
+    lastName String required,
+    birthDate Instant required,
+    idNo String,
+    address String,
+    phoneNumber1 String,
+    phoneNumber2 String,
+    email String,
+    height Integer,
+    age Integer,
+    weight Integer,
+    bloodType BloodType,
+    maritalStatus MaritalStatusType,
+    relationshipWithUser String,
+    patientImageUrl String
+}
+
+entity Device {
+	name String required,
+	model String required,
+    serialNo String required
+}
+
+entity MobileDevice {
+    name String required,
+    os String required,
+    deviceId String
+}
+
+entity Prescription {
+	prescriptionCode String,
+    barCode String,
+    issueDate Instant required,
+    usageDescription String required,
+	importantInfo String required,
+    qty Integer required,
+    hasRefill Boolean required,
+    refillTime Instant,
+    prescriptionImageUrl String,
+    medicType MedicType,
+    medicColor ColorContentType,
+    status PrescriptionStatusType
+}
+
+entity Pharmacy {
+	name String required,
+    store String required,
+    address String,
+    phoneNumber String
+}
+
+entity Medicine {
+	brandName String required,
+    genericName String required,
+    substanceName String required,
+    manufacturerName String required,
+    productNDC String required,
+    packageNDC String required,
+	rx String,
+    medicRout MedicAppearanceType,
+    medicImageUrl String
+}
+
+entity SideEffect {
+	sideEffect String required
+}
+
+entity TimeTable {
+	startDatetime Instant required,
+    endDateTime Instant required,
+    isTaken TakenStatus required
+}
+
+relationship OneToOne {
+	 UserInfo{user} to User{userInfo}
+}
+
+relationship OneToMany {
+    UserInfo{patientInfo} to PatientInfo{userInfo}
+    UserInfo{mobileDevice} to MobileDevice{userInfo}
+    PatientInfo{device} to Device{patientInfo}
+	PatientInfo{prescription} to Prescription{patientInfo}
+    Prescription{device} to Device{prescription}
+    Prescription{timeTable} to TimeTable{prescription}
+    Medicine{sideEffect} to	SideEffect{medicine}
+    Medicine{prescription} to Prescription{medicine}
+    Pharmacy{prescription} to Prescription{pharmacy}
+}
+
+// Set pagination options
+paginate * with pagination
+
+// Use Data Transfer Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+filter Prescription, Medicine

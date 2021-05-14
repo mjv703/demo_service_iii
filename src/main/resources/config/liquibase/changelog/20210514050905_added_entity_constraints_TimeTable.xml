@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <!--
+        Added the constraints for entity TimeTable.
+    -->
+    <changeSet id="20210514050905-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="prescription_id"
+                                 baseTableName="time_table"
+                                 constraintName="fk_time_table__prescription_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="prescription"/>
+    </changeSet>
+</databaseChangeLog>

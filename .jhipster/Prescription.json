@@ -1,0 +1,103 @@
+{
+  "name": "Prescription",
+  "fields": [
+    {
+      "fieldName": "prescriptionCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "barCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "issueDate",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "usageDescription",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "importantInfo",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "qty",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "hasRefill",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "refillTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "prescriptionImageUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "medicType",
+      "fieldType": "MedicType",
+      "fieldValues": "OTHER,INJECTION,ORAL"
+    },
+    {
+      "fieldName": "medicColor",
+      "fieldType": "ColorContentType",
+      "fieldValues": "C_RED,C_BLUE,C_GREEN,C_GREY,C_BROWN,C_YELLOW,C_BLACK,C_WHITE,C_PURPLE"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "PrescriptionStatusType",
+      "fieldValues": "ACTIVE,INACTIVE"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "device",
+      "otherEntityRelationshipName": "prescription",
+      "relationshipName": "device"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "timeTable",
+      "otherEntityRelationshipName": "prescription",
+      "relationshipName": "timeTable"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "patientInfo",
+      "otherEntityRelationshipName": "prescription",
+      "relationshipName": "patientInfo"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "medicine",
+      "otherEntityRelationshipName": "prescription",
+      "relationshipName": "medicine"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "pharmacy",
+      "otherEntityRelationshipName": "prescription",
+      "relationshipName": "pharmacy"
+    }
+  ],
+  "entityTableName": "prescription",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210514050901"
+}

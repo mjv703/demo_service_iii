@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity Prescription.
+    -->
+    <changeSet id="20210514050901-1" author="jhipster">
+        <createTable tableName="prescription">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="prescription_code" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="bar_code" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="issue_date" type="${datetimeType}">
+                <constraints nullable="false" />
+            </column>
+            <column name="usage_description" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="important_info" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="qty" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="has_refill" type="boolean">
+                <constraints nullable="false" />
+            </column>
+            <column name="refill_time" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="prescription_image_url" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="medic_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="medic_color" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="status" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="patient_info_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="medicine_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="pharmacy_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+        <dropDefaultValue tableName="prescription" columnName="issue_date" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="prescription" columnName="refill_time" columnDataType="${datetimeType}"/>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20210514050901-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/prescription.csv"
+                  separator=";"
+                  tableName="prescription">
+            <column name="id" type="numeric"/>
+            <column name="prescription_code" type="string"/>
+            <column name="bar_code" type="string"/>
+            <column name="issue_date" type="${datetimeType}"/>
+            <column name="usage_description" type="string"/>
+            <column name="important_info" type="string"/>
+            <column name="qty" type="numeric"/>
+            <column name="has_refill" type="boolean"/>
+            <column name="refill_time" type="${datetimeType}"/>
+            <column name="prescription_image_url" type="string"/>
+            <column name="medic_type" type="string"/>
+            <column name="medic_color" type="string"/>
+            <column name="status" type="string"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

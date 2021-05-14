@@ -1,0 +1,100 @@
+{
+  "name": "PatientInfo",
+  "fields": [
+    {
+      "fieldName": "firstName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "lastName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "birthDate",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "idNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phoneNumber1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phoneNumber2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "height",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "age",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "weight",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "bloodType",
+      "fieldType": "BloodType",
+      "fieldValues": "A_p,A_n,B_p,B_n,O_p,O_n,AB_p,AB_n"
+    },
+    {
+      "fieldName": "maritalStatus",
+      "fieldType": "MaritalStatusType",
+      "fieldValues": "SINGLE"
+    },
+    {
+      "fieldName": "relationshipWithUser",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "patientImageUrl",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "device",
+      "otherEntityRelationshipName": "patientInfo",
+      "relationshipName": "device"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "prescription",
+      "otherEntityRelationshipName": "patientInfo",
+      "relationshipName": "prescription"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "userInfo",
+      "otherEntityRelationshipName": "patientInfo",
+      "relationshipName": "userInfo"
+    }
+  ],
+  "entityTableName": "patient_info",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210514050858"
+}

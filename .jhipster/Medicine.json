@@ -1,0 +1,72 @@
+{
+  "name": "Medicine",
+  "fields": [
+    {
+      "fieldName": "brandName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "genericName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "substanceName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "manufacturerName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "productNDC",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "packageNDC",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "rx",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "medicRout",
+      "fieldType": "MedicAppearanceType",
+      "fieldValues": "TABLET,CAPSULE,INJECTABLE,LIQUID,SYRUP,POWDER,CREAM,SOLUTION,SUPPOSITORY,SUSPENSION,JELLY,LOTION,EMULSION,AEROSOL,PASTE,SPRAY"
+    },
+    {
+      "fieldName": "medicImageUrl",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "sideEffect",
+      "otherEntityRelationshipName": "medicine",
+      "relationshipName": "sideEffect"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "prescription",
+      "otherEntityRelationshipName": "medicine",
+      "relationshipName": "prescription"
+    }
+  ],
+  "entityTableName": "medicine",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210514050903"
+}

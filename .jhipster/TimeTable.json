@@ -1,0 +1,39 @@
+{
+  "name": "TimeTable",
+  "fields": [
+    {
+      "fieldName": "startDatetime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "endDateTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "isTaken",
+      "fieldType": "TakenStatus",
+      "fieldValues": "TAKEN,NOT_TAKEN",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "prescription",
+      "otherEntityRelationshipName": "timeTable",
+      "relationshipName": "prescription"
+    }
+  ],
+  "entityTableName": "time_table",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210514050905"
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <!--
+        Added the constraints for entity Device.
+    -->
+    <changeSet id="20210514050859-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="patient_info_id"
+                                 baseTableName="device"
+                                 constraintName="fk_device__patient_info_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="patient_info"/>
+
+        <addForeignKeyConstraint baseColumnNames="prescription_id"
+                                 baseTableName="device"
+                                 constraintName="fk_device__prescription_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="prescription"/>
+    </changeSet>
+</databaseChangeLog>

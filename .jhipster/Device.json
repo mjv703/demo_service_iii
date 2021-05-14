@@ -1,0 +1,44 @@
+{
+  "name": "Device",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "model",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "serialNo",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "patientInfo",
+      "otherEntityRelationshipName": "device",
+      "relationshipName": "patientInfo"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "prescription",
+      "otherEntityRelationshipName": "device",
+      "relationshipName": "prescription"
+    }
+  ],
+  "entityTableName": "device",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210514050859"
+}
