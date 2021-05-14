@@ -48,6 +48,24 @@ public class CacheConfiguration {
             createCache(cm, com.medicai.pillpal.domain.User.class.getName());
             createCache(cm, com.medicai.pillpal.domain.Authority.class.getName());
             createCache(cm, com.medicai.pillpal.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.medicai.pillpal.domain.UserInfo.class.getName());
+            createCache(cm, com.medicai.pillpal.domain.UserInfo.class.getName() + ".patientInfos");
+            createCache(cm, com.medicai.pillpal.domain.PatientInfo.class.getName());
+            createCache(cm, com.medicai.pillpal.domain.PatientInfo.class.getName() + ".devices");
+            createCache(cm, com.medicai.pillpal.domain.PatientInfo.class.getName() + ".prescriptions");
+            createCache(cm, com.medicai.pillpal.domain.Device.class.getName());
+            createCache(cm, com.medicai.pillpal.domain.MobileDevice.class.getName());
+            createCache(cm, com.medicai.pillpal.domain.Prescription.class.getName());
+            createCache(cm, com.medicai.pillpal.domain.Prescription.class.getName() + ".devices");
+            createCache(cm, com.medicai.pillpal.domain.Prescription.class.getName() + ".timeTables");
+            createCache(cm, com.medicai.pillpal.domain.Pharmacy.class.getName());
+            createCache(cm, com.medicai.pillpal.domain.Pharmacy.class.getName() + ".prescriptions");
+            createCache(cm, com.medicai.pillpal.domain.Medicine.class.getName());
+            createCache(cm, com.medicai.pillpal.domain.Medicine.class.getName() + ".sideEffects");
+            createCache(cm, com.medicai.pillpal.domain.Medicine.class.getName() + ".prescriptions");
+            createCache(cm, com.medicai.pillpal.domain.SideEffect.class.getName());
+            createCache(cm, com.medicai.pillpal.domain.TimeTable.class.getName());
+            createCache(cm, com.medicai.pillpal.domain.UserInfo.class.getName() + ".mobileDevices");
             // jhipster-needle-ehcache-add-entry
         };
     }

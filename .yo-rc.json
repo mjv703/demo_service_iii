@@ -41,6 +41,8 @@
     "clientTheme": "none",
     "clientThemeVariant": "",
     "withAdminUi": true,
-    "languages": ["en", "fr"]
+    "languages": ["en", "fr"],
+    "entities": ["UserInfo", "PatientInfo", "Device", "MobileDevice", "Prescription", "Pharmacy", "Medicine", "SideEffect", "TimeTable"],
+    "lastLiquibaseTimestamp": 1620968945000
   }
 }
