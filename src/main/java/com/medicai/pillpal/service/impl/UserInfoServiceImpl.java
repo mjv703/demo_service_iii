@@ -74,4 +74,11 @@ public class UserInfoServiceImpl implements UserInfoService {
         log.debug("Request to delete UserInfo : {}", id);
         userInfoRepository.deleteById(id);
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Optional<UserInfoDTO> findOneByAccountId(Long id) {
+        log.debug("Request to get UserInfo : {}", id);
+        return userInfoRepository.findById(id).map(userInfoMapper::toDto);
+    }
 }

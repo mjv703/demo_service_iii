@@ -5,6 +5,7 @@ import com.medicai.pillpal.repository.MobileDeviceRepository;
 import com.medicai.pillpal.service.MobileDeviceService;
 import com.medicai.pillpal.service.dto.MobileDeviceDTO;
 import com.medicai.pillpal.service.mapper.MobileDeviceMapper;
+import java.util.List;
 import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -73,5 +74,12 @@ public class MobileDeviceServiceImpl implements MobileDeviceService {
     public void delete(Long id) {
         log.debug("Request to delete MobileDevice : {}", id);
         mobileDeviceRepository.deleteById(id);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Page<MobileDeviceDTO> findAllByAccountId(Pageable pageable, Long id) {
+        log.debug("Request to get all MobileDevices");
+        return mobileDeviceRepository.findAllByUserInfoId(pageable, id).map(mobileDeviceMapper::toDto);
     }
 }

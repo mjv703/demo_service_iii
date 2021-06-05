@@ -3,6 +3,7 @@ package com.medicai.pillpal.web.rest;
 import com.medicai.pillpal.repository.MobileDeviceRepository;
 import com.medicai.pillpal.service.MobileDeviceService;
 import com.medicai.pillpal.service.dto.MobileDeviceDTO;
+import com.medicai.pillpal.service.dto.TimeTableDTO;
 import com.medicai.pillpal.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -166,5 +167,13 @@ public class MobileDeviceResource {
             .noContent()
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString()))
             .build();
+    }
+
+    @GetMapping("/mobile-devices-filter-by-account-id/{id}")
+    public ResponseEntity<List<MobileDeviceDTO>> getMobileDevicesFilteredByAccountId(Pageable pageable, @PathVariable Long id) {
+        log.debug("REST request to get MobileDevice : {}", id);
+        Page<MobileDeviceDTO> page = mobileDeviceService.findAllByAccountId(pageable, id);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 }

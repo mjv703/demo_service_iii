@@ -19,7 +19,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -81,7 +80,7 @@ public class PrescriptionResource {
     /**
      * {@code PUT  /prescriptions/:id} : Updates an existing prescription.
      *
-     * @param id the id of the prescriptionDTO to save.
+     * @param id              the id of the prescriptionDTO to save.
      * @param prescriptionDTO the prescriptionDTO to update.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated prescriptionDTO,
      * or with status {@code 400 (Bad Request)} if the prescriptionDTO is not valid,
@@ -115,7 +114,7 @@ public class PrescriptionResource {
     /**
      * {@code PATCH  /prescriptions/:id} : Partial updates given fields of an existing prescription, field will ignore if it is null
      *
-     * @param id the id of the prescriptionDTO to save.
+     * @param id              the id of the prescriptionDTO to save.
      * @param prescriptionDTO the prescriptionDTO to update.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated prescriptionDTO,
      * or with status {@code 400 (Bad Request)} if the prescriptionDTO is not valid,
@@ -187,5 +186,13 @@ public class PrescriptionResource {
             .noContent()
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString()))
             .build();
+    }
+
+    @GetMapping("/prescriptions-filter-by-patient-id/{id}")
+    public ResponseEntity<List<PrescriptionDTO>> getPrescriptionFilteredByPatientId(Pageable pageable, @PathVariable Long id) {
+        log.debug("REST request to get Prescription : {}", id);
+        Page<PrescriptionDTO> page = prescriptionService.findAllByByPatientId(pageable, id);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 }

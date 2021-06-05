@@ -1,6 +1,7 @@
 package com.medicai.pillpal.service;
 
 import com.medicai.pillpal.service.dto.MobileDeviceDTO;
+import java.util.List;
 import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -47,4 +48,6 @@ public interface MobileDeviceService {
      * @param id the id of the entity.
      */
     void delete(Long id);
+
+    Page<MobileDeviceDTO> findAllByAccountId(Pageable pageable, Long id);
 }

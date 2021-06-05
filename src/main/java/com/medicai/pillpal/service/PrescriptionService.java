@@ -47,4 +47,6 @@ public interface PrescriptionService {
      * @param id the id of the entity.
      */
     void delete(Long id);
+
+    Page<PrescriptionDTO> findAllByByPatientId(Pageable pageable, Long id);
 }

@@ -166,4 +166,11 @@ public class UserInfoResource {
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString()))
             .build();
     }
+
+    @GetMapping("/user-info-filter-by-account-id/{id}")
+    public ResponseEntity<UserInfoDTO> getUserInfoFilteredByAccountId(@PathVariable Long id) {
+        log.debug("REST request to get UserInfo : {}", id);
+        Optional<UserInfoDTO> userInfoDTO = userInfoService.findOneByAccountId(id);
+        return ResponseUtil.wrapOrNotFound(userInfoDTO);
+    }
 }

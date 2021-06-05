@@ -47,4 +47,6 @@ public interface UserInfoService {
      * @param id the id of the entity.
      */
     void delete(Long id);
+
+    Optional<UserInfoDTO> findOneByAccountId(Long id);
 }

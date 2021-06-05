@@ -3,6 +3,7 @@ package com.medicai.pillpal.service.impl;
 import com.medicai.pillpal.domain.Prescription;
 import com.medicai.pillpal.repository.PrescriptionRepository;
 import com.medicai.pillpal.service.PrescriptionService;
+import com.medicai.pillpal.service.dto.MobileDeviceDTO;
 import com.medicai.pillpal.service.dto.PrescriptionDTO;
 import com.medicai.pillpal.service.mapper.PrescriptionMapper;
 import java.util.Optional;
@@ -73,5 +74,12 @@ public class PrescriptionServiceImpl implements PrescriptionService {
     public void delete(Long id) {
         log.debug("Request to delete Prescription : {}", id);
         prescriptionRepository.deleteById(id);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Page<PrescriptionDTO> findAllByByPatientId(Pageable pageable, Long id) {
+        log.debug("Request to get all Prescriptions");
+        return prescriptionRepository.findAllByPatientInfoId(pageable, id).map(prescriptionMapper::toDto);
     }
 }

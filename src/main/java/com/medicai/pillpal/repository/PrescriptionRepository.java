@@ -1,6 +1,9 @@
 package com.medicai.pillpal.repository;
 
+import com.medicai.pillpal.domain.MobileDevice;
 import com.medicai.pillpal.domain.Prescription;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.Repository;
 
@@ -9,4 +12,6 @@ import org.springframework.stereotype.Repository;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface PrescriptionRepository extends JpaRepository<Prescription, Long>, JpaSpecificationExecutor<Prescription> {}
+public interface PrescriptionRepository extends JpaRepository<Prescription, Long>, JpaSpecificationExecutor<Prescription> {
+    Page<MobileDevice> findAllByPatientInfoId(Pageable pageable, Long id);
+}
