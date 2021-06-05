@@ -48,5 +48,5 @@ public interface PrescriptionService {
      */
     void delete(Long id);
 
-    Page<PrescriptionDTO> findAllByByPatientId(Pageable pageable, Long id);
+    Page<PrescriptionDTO> findAllByPatientId(Pageable pageable, Long id);
 }

@@ -78,7 +78,7 @@ public class PrescriptionServiceImpl implements PrescriptionService {
 
     @Override
     @Transactional(readOnly = true)
-    public Page<PrescriptionDTO> findAllByByPatientId(Pageable pageable, Long id) {
+    public Page<PrescriptionDTO> findAllByPatientId(Pageable pageable, Long id) {
         log.debug("Request to get all Prescriptions");
         return prescriptionRepository.findAllByPatientInfoId(pageable, id).map(prescriptionMapper::toDto);
     }

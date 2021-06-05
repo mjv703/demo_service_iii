@@ -191,7 +191,7 @@ public class PrescriptionResource {
     @GetMapping("/prescriptions-filter-by-patient-id/{id}")
     public ResponseEntity<List<PrescriptionDTO>> getPrescriptionFilteredByPatientId(Pageable pageable, @PathVariable Long id) {
         log.debug("REST request to get Prescription : {}", id);
-        Page<PrescriptionDTO> page = prescriptionService.findAllByByPatientId(pageable, id);
+        Page<PrescriptionDTO> page = prescriptionService.findAllByPatientId(pageable, id);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }

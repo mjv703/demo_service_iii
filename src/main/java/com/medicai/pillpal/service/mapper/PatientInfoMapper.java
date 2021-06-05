@@ -16,4 +16,6 @@ public interface PatientInfoMapper extends EntityMapper<PatientInfoDTO, PatientI
     @BeanMapping(ignoreByDefault = true)
     @Mapping(target = "id", source = "id")
     PatientInfoDTO toDtoId(PatientInfo patientInfo);
+
+    PatientInfoDTO toDto(MobileDevice mobileDevice);
 }

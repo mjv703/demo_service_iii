@@ -3,6 +3,7 @@ package com.medicai.pillpal.web.rest;
 import com.medicai.pillpal.repository.PatientInfoRepository;
 import com.medicai.pillpal.service.PatientInfoService;
 import com.medicai.pillpal.service.dto.PatientInfoDTO;
+import com.medicai.pillpal.service.dto.PrescriptionDTO;
 import com.medicai.pillpal.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -71,7 +72,7 @@ public class PatientInfoResource {
     /**
      * {@code PUT  /patient-infos/:id} : Updates an existing patientInfo.
      *
-     * @param id the id of the patientInfoDTO to save.
+     * @param id             the id of the patientInfoDTO to save.
      * @param patientInfoDTO the patientInfoDTO to update.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated patientInfoDTO,
      * or with status {@code 400 (Bad Request)} if the patientInfoDTO is not valid,
@@ -105,7 +106,7 @@ public class PatientInfoResource {
     /**
      * {@code PATCH  /patient-infos/:id} : Partial updates given fields of an existing patientInfo, field will ignore if it is null
      *
-     * @param id the id of the patientInfoDTO to save.
+     * @param id             the id of the patientInfoDTO to save.
      * @param patientInfoDTO the patientInfoDTO to update.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated patientInfoDTO,
      * or with status {@code 400 (Bad Request)} if the patientInfoDTO is not valid,
@@ -165,5 +166,13 @@ public class PatientInfoResource {
             .noContent()
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString()))
             .build();
+    }
+
+    @GetMapping("/patient-infos-filter-by-account-id/{id}")
+    public ResponseEntity<List<PatientInfoDTO>> getPatientInfoFilteredByAccountId(Pageable pageable, @PathVariable Long id) {
+        log.debug("REST request to get PatientInfo : {}", id);
+        Page<PatientInfoDTO> page = patientInfoService.findAllByAccountId(pageable, id);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 }

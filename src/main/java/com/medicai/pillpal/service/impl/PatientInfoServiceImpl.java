@@ -74,4 +74,11 @@ public class PatientInfoServiceImpl implements PatientInfoService {
         log.debug("Request to delete PatientInfo : {}", id);
         patientInfoRepository.deleteById(id);
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Page<PatientInfoDTO> findAllByAccountId(Pageable pageable, Long id) {
+        log.debug("Request to get all PatientInfos");
+        return patientInfoRepository.findAllByUserInfoId(pageable, id).map(patientInfoMapper::toDto);
+    }
 }

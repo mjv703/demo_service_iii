@@ -47,4 +47,6 @@ public interface PatientInfoService {
      * @param id the id of the entity.
      */
     void delete(Long id);
+
+    Page<PatientInfoDTO> findAllByAccountId(Pageable pageable, Long id);
 }
