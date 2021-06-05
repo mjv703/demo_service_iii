@@ -1,4 +1,4 @@
-id;first_name;last_name;birth_date;id_no;address;phone_number_1;phone_number_2;email;height;age;weight;blood_type;marital_status;relationship_with_user;patient_image_url
-1;Lela;Abshire;2021-05-14T00:44:13;Ergonomic;convergence Home;orchid;monitor XML;Kayley65@gmail.com;30179;34012;49949;B_n;SINGLE;Dynamic;overriding
-2;Roscoe;Blick;2021-05-14T03:12:58;Awesome;reciprocal payment Accounts;lime;synthesizing portal Tennessee;Tate0@gmail.com;92650;28450;23883;O_n;SINGLE;Technician THX Soap;Solutions Granite
-3;Myron;Leuschke;2021-05-13T11:12:32;THX Handmade Account;Cotton United;panel;syndicate compressing communities;Justina36@yahoo.com;3668;22613;74128;B_p;SINGLE;Missouri Networked;Estates Fresh
+id;first_name;last_name;birth_date;id_no;address;phone_number_1;phone_number_2;email;height;age;weight;blood_type;marital_status;relationship_with_user;patient_image_url;user_info_id
+1;Lela;Abshire;2021-05-14T00:44:13;Ergonomic;convergence Home;orchid;monitor XML;Kayley65@gmail.com;30179;34012;49949;B_n;SINGLE;Dynamic;overriding;2
+2;Roscoe;Blick;2021-05-14T03:12:58;Awesome;reciprocal payment Accounts;lime;synthesizing portal Tennessee;Tate0@gmail.com;92650;28450;23883;O_n;SINGLE;Technician THX Soap;Solutions Granite;2
+3;Myron;Leuschke;2021-05-13T11:12:32;THX Handmade Account;Cotton United;panel;syndicate compressing communities;Justina36@yahoo.com;3668;22613;74128;B_p;SINGLE;Missouri Networked;Estates Fresh;2
