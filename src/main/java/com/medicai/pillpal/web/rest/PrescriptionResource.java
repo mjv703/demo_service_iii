@@ -1,13 +1,17 @@
 package com.medicai.pillpal.web.rest;
 
 import com.medicai.pillpal.repository.PrescriptionRepository;
+import com.medicai.pillpal.service.GoogleAPIService;
 import com.medicai.pillpal.service.PrescriptionQueryService;
 import com.medicai.pillpal.service.PrescriptionService;
 import com.medicai.pillpal.service.criteria.PrescriptionCriteria;
 import com.medicai.pillpal.service.dto.PrescriptionDTO;
 import com.medicai.pillpal.web.rest.errors.BadRequestAlertException;
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.nio.file.Path;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,6 +20,8 @@ import javax.validation.constraints.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
@@ -46,14 +52,18 @@ public class PrescriptionResource {
 
     private final PrescriptionQueryService prescriptionQueryService;
 
+    private final GoogleAPIService googleAPIService;
+
     public PrescriptionResource(
         PrescriptionService prescriptionService,
         PrescriptionRepository prescriptionRepository,
-        PrescriptionQueryService prescriptionQueryService
+        PrescriptionQueryService prescriptionQueryService,
+        GoogleAPIService googleAPIService
     ) {
         this.prescriptionService = prescriptionService;
         this.prescriptionRepository = prescriptionRepository;
         this.prescriptionQueryService = prescriptionQueryService;
+        this.googleAPIService = googleAPIService;
     }
 
     /**
@@ -194,5 +204,18 @@ public class PrescriptionResource {
         Page<PrescriptionDTO> page = prescriptionService.findAllByPatientId(pageable, id);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+    @GetMapping("/extractText")
+    public String extractText(String imageUrl) {
+        String s = null;
+        try {
+            googleAPIService.detectText();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println(s);
+
+        return null;
     }
 }
