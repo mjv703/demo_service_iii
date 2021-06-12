@@ -2,7 +2,7 @@ package com.medicai.pillpal.service.dto;
 
 import java.io.Serializable;
 import java.util.Objects;
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * A DTO for the {@link com.medicai.pillpal.domain.SideEffect} entity.

@@ -6,7 +6,6 @@ import com.medicai.pillpal.service.dto.UserInfoDTO;
 import com.medicai.pillpal.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.validation.Valid;
@@ -14,15 +13,9 @@ import javax.validation.constraints.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import tech.jhipster.web.util.HeaderUtil;
-import tech.jhipster.web.util.PaginationUtil;
 import tech.jhipster.web.util.ResponseUtil;
 
 /**
@@ -71,7 +64,7 @@ public class UserInfoResource {
     /**
      * {@code PUT  /user-infos/:id} : Updates an existing userInfo.
      *
-     * @param id the id of the userInfoDTO to save.
+     * @param id          the id of the userInfoDTO to save.
      * @param userInfoDTO the userInfoDTO to update.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated userInfoDTO,
      * or with status {@code 400 (Bad Request)} if the userInfoDTO is not valid,
@@ -105,7 +98,7 @@ public class UserInfoResource {
     /**
      * {@code PATCH  /user-infos/:id} : Partial updates given fields of an existing userInfo, field will ignore if it is null
      *
-     * @param id the id of the userInfoDTO to save.
+     * @param id          the id of the userInfoDTO to save.
      * @param userInfoDTO the userInfoDTO to update.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated userInfoDTO,
      * or with status {@code 400 (Bad Request)} if the userInfoDTO is not valid,

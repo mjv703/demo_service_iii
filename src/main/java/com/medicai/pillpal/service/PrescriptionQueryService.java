@@ -1,7 +1,6 @@
 package com.medicai.pillpal.service;
 
-import com.medicai.pillpal.domain.*; // for static metamodels
-import com.medicai.pillpal.domain.Prescription;
+import com.medicai.pillpal.domain.*;
 import com.medicai.pillpal.repository.PrescriptionRepository;
 import com.medicai.pillpal.service.criteria.PrescriptionCriteria;
 import com.medicai.pillpal.service.dto.PrescriptionDTO;
@@ -40,6 +39,7 @@ public class PrescriptionQueryService extends QueryService<Prescription> {
 
     /**
      * Return a {@link List} of {@link PrescriptionDTO} which matches the criteria from the database.
+     *
      * @param criteria The object which holds all the filters, which the entities should match.
      * @return the matching entities.
      */
@@ -52,8 +52,9 @@ public class PrescriptionQueryService extends QueryService<Prescription> {
 
     /**
      * Return a {@link Page} of {@link PrescriptionDTO} which matches the criteria from the database.
+     *
      * @param criteria The object which holds all the filters, which the entities should match.
-     * @param page The page, which should be returned.
+     * @param page     The page, which should be returned.
      * @return the matching entities.
      */
     @Transactional(readOnly = true)
@@ -65,6 +66,7 @@ public class PrescriptionQueryService extends QueryService<Prescription> {
 
     /**
      * Return the number of matching entities in the database.
+     *
      * @param criteria The object which holds all the filters, which the entities should match.
      * @return the number of matching entities.
      */
@@ -77,6 +79,7 @@ public class PrescriptionQueryService extends QueryService<Prescription> {
 
     /**
      * Function to convert {@link PrescriptionCriteria} to a {@link Specification}
+     *
      * @param criteria The object which holds all the filters, which the entities should match.
      * @return the matching {@link Specification} of the entity.
      */

@@ -6,7 +6,7 @@ import com.medicai.pillpal.domain.enumeration.PrescriptionStatusType;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * A DTO for the {@link com.medicai.pillpal.domain.Prescription} entity.

@@ -5,7 +5,6 @@ import com.medicai.pillpal.repository.MobileDeviceRepository;
 import com.medicai.pillpal.service.MobileDeviceService;
 import com.medicai.pillpal.service.dto.MobileDeviceDTO;
 import com.medicai.pillpal.service.mapper.MobileDeviceMapper;
-import java.util.List;
 import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

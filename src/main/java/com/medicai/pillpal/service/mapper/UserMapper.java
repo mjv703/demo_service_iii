@@ -4,7 +4,10 @@ import com.medicai.pillpal.domain.Authority;
 import com.medicai.pillpal.domain.User;
 import com.medicai.pillpal.service.dto.AdminUserDTO;
 import com.medicai.pillpal.service.dto.UserDTO;
-import java.util.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Objects;
+import java.util.Set;
 import java.util.stream.Collectors;
 import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapping;
@@ -13,7 +16,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * Mapper for the entity {@link User} and its DTO called {@link UserDTO}.
- *
+ * <p>
  * Normal mappers are generated using MapStruct, this one is hand-coded as MapStruct
  * support is still in beta, and requires a manual step with an IDE.
  */

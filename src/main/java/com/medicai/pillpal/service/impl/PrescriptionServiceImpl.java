@@ -3,7 +3,6 @@ package com.medicai.pillpal.service.impl;
 import com.medicai.pillpal.domain.Prescription;
 import com.medicai.pillpal.repository.PrescriptionRepository;
 import com.medicai.pillpal.service.PrescriptionService;
-import com.medicai.pillpal.service.dto.MobileDeviceDTO;
 import com.medicai.pillpal.service.dto.PrescriptionDTO;
 import com.medicai.pillpal.service.mapper.PrescriptionMapper;
 import java.util.Optional;

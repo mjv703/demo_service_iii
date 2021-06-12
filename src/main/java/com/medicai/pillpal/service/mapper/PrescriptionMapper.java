@@ -1,8 +1,12 @@
 package com.medicai.pillpal.service.mapper;
 
-import com.medicai.pillpal.domain.*;
+import com.medicai.pillpal.domain.MobileDevice;
+import com.medicai.pillpal.domain.Prescription;
 import com.medicai.pillpal.service.dto.PrescriptionDTO;
-import org.mapstruct.*;
+import org.mapstruct.BeanMapping;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.Named;
 
 /**
  * Mapper for the entity {@link Prescription} and its DTO {@link PrescriptionDTO}.

@@ -2,7 +2,6 @@ package com.medicai.pillpal.service.dto;
 
 import java.io.Serializable;
 import java.util.Objects;
-import javax.validation.constraints.*;
 
 /**
  * A DTO for the {@link com.medicai.pillpal.domain.UserInfo} entity.

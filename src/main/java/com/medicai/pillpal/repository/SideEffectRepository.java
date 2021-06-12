@@ -1,7 +1,7 @@
 package com.medicai.pillpal.repository;
 
 import com.medicai.pillpal.domain.SideEffect;
-import org.springframework.data.jpa.repository.*;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 /**

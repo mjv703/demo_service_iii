@@ -1,14 +1,11 @@
 package com.medicai.pillpal.service.dto;
 
-import com.medicai.pillpal.domain.Medicine;
 import com.medicai.pillpal.domain.SideEffect;
 import com.medicai.pillpal.domain.enumeration.MedicAppearanceType;
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
-import java.util.stream.Collectors;
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * A DTO for the {@link com.medicai.pillpal.domain.Medicine} entity.

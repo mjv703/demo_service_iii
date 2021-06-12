@@ -3,7 +3,6 @@ package com.medicai.pillpal.web.rest;
 import com.medicai.pillpal.repository.MobileDeviceRepository;
 import com.medicai.pillpal.service.MobileDeviceService;
 import com.medicai.pillpal.service.dto.MobileDeviceDTO;
-import com.medicai.pillpal.service.dto.TimeTableDTO;
 import com.medicai.pillpal.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -18,7 +17,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -73,7 +71,7 @@ public class MobileDeviceResource {
     /**
      * {@code PUT  /mobile-devices/:id} : Updates an existing mobileDevice.
      *
-     * @param id the id of the mobileDeviceDTO to save.
+     * @param id              the id of the mobileDeviceDTO to save.
      * @param mobileDeviceDTO the mobileDeviceDTO to update.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated mobileDeviceDTO,
      * or with status {@code 400 (Bad Request)} if the mobileDeviceDTO is not valid,
@@ -107,7 +105,7 @@ public class MobileDeviceResource {
     /**
      * {@code PATCH  /mobile-devices/:id} : Partial updates given fields of an existing mobileDevice, field will ignore if it is null
      *
-     * @param id the id of the mobileDeviceDTO to save.
+     * @param id              the id of the mobileDeviceDTO to save.
      * @param mobileDeviceDTO the mobileDeviceDTO to update.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated mobileDeviceDTO,
      * or with status {@code 400 (Bad Request)} if the mobileDeviceDTO is not valid,
