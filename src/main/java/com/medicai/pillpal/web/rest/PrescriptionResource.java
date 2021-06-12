@@ -209,11 +209,11 @@ public class PrescriptionResource {
     @GetMapping("/extractText")
     public String extractText(String imageUrl) {
         String s = null;
-        try {
-            googleAPIService.detectText();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        //try {
+        //googleAPIService.detectText();
+        //} catch (IOException e) {
+        //    e.printStackTrace();
+        //}
         System.out.println(s);
 
         return null;
