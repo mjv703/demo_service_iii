@@ -23,10 +23,13 @@ public class FilesResource {
     }
 
     @PostMapping("/upload")
-    public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file) {
+    public ResponseEntity<String> uploadFile(
+        @RequestParam("file") MultipartFile file,
+        @RequestParam("imageSourceType") String imageSourceType
+    ) {
         String message = "";
         try {
-            filesStorageService.save(file);
+            filesStorageService.save(file, imageSourceType);
 
             message = "Uploaded the file successfully: " + file.getOriginalFilename();
             return ResponseEntity.status(HttpStatus.OK).body(message);

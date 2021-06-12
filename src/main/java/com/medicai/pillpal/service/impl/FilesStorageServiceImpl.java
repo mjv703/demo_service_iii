@@ -1,6 +1,7 @@
 package com.medicai.pillpal.service.impl;
 
 import com.medicai.pillpal.service.FilesStorageService;
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.nio.file.Files;
@@ -28,9 +29,10 @@ public class FilesStorageServiceImpl implements FilesStorageService {
     }
 
     @Override
-    public void save(MultipartFile file) {
+    public void save(MultipartFile file, String imageSourceType) {
         try {
-            Files.copy(file.getInputStream(), this.root.resolve(file.getOriginalFilename()));
+            String name = File.createTempFile(imageSourceType + "_", file.getOriginalFilename()).getName();
+            Files.copy(file.getInputStream(), this.root.resolve(name));
         } catch (Exception e) {
             throw new RuntimeException("Could not store the file. Error: " + e.getMessage());
         }
