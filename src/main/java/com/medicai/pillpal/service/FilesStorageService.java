@@ -8,7 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 public interface FilesStorageService {
     public void init();
 
-    public void save(MultipartFile file, String imageSourceType);
+    public String save(MultipartFile file, String imageSourceType);
 
     public Resource load(String filename);
 

@@ -29,10 +29,11 @@ public class FilesStorageServiceImpl implements FilesStorageService {
     }
 
     @Override
-    public void save(MultipartFile file, String imageSourceType) {
+    public String save(MultipartFile file, String imageSourceType) {
         try {
             String name = File.createTempFile(imageSourceType + "_", file.getOriginalFilename()).getName();
             Files.copy(file.getInputStream(), this.root.resolve(name));
+            return this.root.resolve(name).toString();
         } catch (Exception e) {
             throw new RuntimeException("Could not store the file. Error: " + e.getMessage());
         }

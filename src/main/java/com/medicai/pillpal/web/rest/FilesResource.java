@@ -22,17 +22,16 @@ public class FilesResource {
         this.filesStorageService = filesStorageService;
     }
 
-    @PostMapping("/upload")
+    @PostMapping("/files/upload")
     public ResponseEntity<String> uploadFile(
         @RequestParam("file") MultipartFile file,
         @RequestParam("imageSourceType") String imageSourceType
     ) {
         String message = "";
         try {
-            filesStorageService.save(file, imageSourceType);
-
+            String savedFileName = filesStorageService.save(file, imageSourceType);
             message = "Uploaded the file successfully: " + file.getOriginalFilename();
-            return ResponseEntity.status(HttpStatus.OK).body(message);
+            return ResponseEntity.status(HttpStatus.OK).body(savedFileName);
         } catch (Exception e) {
             message = "Could not upload the file: " + file.getOriginalFilename() + "!";
             return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(message);
