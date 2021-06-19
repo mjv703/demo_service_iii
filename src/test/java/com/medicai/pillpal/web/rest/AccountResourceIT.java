@@ -2,7 +2,8 @@ package com.medicai.pillpal.web.rest;
 
 import static com.medicai.pillpal.web.rest.AccountResourceIT.TEST_USER_LOGIN;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import com.medicai.pillpal.IntegrationTest;
@@ -14,11 +15,13 @@ import com.medicai.pillpal.security.AuthoritiesConstants;
 import com.medicai.pillpal.service.UserService;
 import com.medicai.pillpal.service.dto.AdminUserDTO;
 import com.medicai.pillpal.service.dto.PasswordChangeDTO;
-import com.medicai.pillpal.service.dto.UserDTO;
 import com.medicai.pillpal.web.rest.vm.KeyAndPasswordVM;
 import com.medicai.pillpal.web.rest.vm.ManagedUserVM;
 import java.time.Instant;
-import java.util.*;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Optional;
+import java.util.Set;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

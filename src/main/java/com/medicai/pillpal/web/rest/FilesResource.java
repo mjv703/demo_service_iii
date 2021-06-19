@@ -38,7 +38,7 @@ public class FilesResource {
         }
     }
 
-    @GetMapping("/files")
+    @GetMapping("/files/list")
     public ResponseEntity<List<FileInfoDTO>> getListFiles() {
         List<FileInfoDTO> fileInfos = filesStorageService
             .loadAll()
@@ -58,7 +58,7 @@ public class FilesResource {
         return ResponseEntity.status(HttpStatus.OK).body(fileInfos);
     }
 
-    @GetMapping("/files/{filename:.+}")
+    @GetMapping("/files/download/{filename:.+}")
     @ResponseBody
     public ResponseEntity<Resource> getFile(@PathVariable String filename) {
         Resource file = filesStorageService.load(filename);

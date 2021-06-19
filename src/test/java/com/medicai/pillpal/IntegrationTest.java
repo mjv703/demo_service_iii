@@ -1,6 +1,5 @@
 package com.medicai.pillpal;
 
-import com.medicai.pillpal.PillpalApp;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

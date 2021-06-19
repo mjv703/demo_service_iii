@@ -33,7 +33,7 @@ public class FilesStorageServiceImpl implements FilesStorageService {
         try {
             String name = File.createTempFile(imageSourceType + "_", file.getOriginalFilename()).getName();
             Files.copy(file.getInputStream(), this.root.resolve(name));
-            return this.root.resolve(name).toString();
+            return name;
         } catch (Exception e) {
             throw new RuntimeException("Could not store the file. Error: " + e.getMessage());
         }

@@ -11,7 +11,6 @@ import com.medicai.pillpal.domain.Prescription;
 import com.medicai.pillpal.domain.SideEffect;
 import com.medicai.pillpal.domain.enumeration.MedicAppearanceType;
 import com.medicai.pillpal.repository.MedicineRepository;
-import com.medicai.pillpal.service.criteria.MedicineCriteria;
 import com.medicai.pillpal.service.dto.MedicineDTO;
 import com.medicai.pillpal.service.mapper.MedicineMapper;
 import java.util.List;

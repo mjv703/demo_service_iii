@@ -6,17 +6,11 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import com.medicai.pillpal.IntegrationTest;
-import com.medicai.pillpal.domain.Device;
-import com.medicai.pillpal.domain.Medicine;
-import com.medicai.pillpal.domain.PatientInfo;
-import com.medicai.pillpal.domain.Pharmacy;
-import com.medicai.pillpal.domain.Prescription;
-import com.medicai.pillpal.domain.TimeTable;
+import com.medicai.pillpal.domain.*;
 import com.medicai.pillpal.domain.enumeration.ColorContentType;
 import com.medicai.pillpal.domain.enumeration.MedicType;
 import com.medicai.pillpal.domain.enumeration.PrescriptionStatusType;
 import com.medicai.pillpal.repository.PrescriptionRepository;
-import com.medicai.pillpal.service.criteria.PrescriptionCriteria;
 import com.medicai.pillpal.service.dto.PrescriptionDTO;
 import com.medicai.pillpal.service.mapper.PrescriptionMapper;
 import java.time.Instant;

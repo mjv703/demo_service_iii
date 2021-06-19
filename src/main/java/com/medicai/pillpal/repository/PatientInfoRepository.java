@@ -1,6 +1,5 @@
 package com.medicai.pillpal.repository;
 
-import com.medicai.pillpal.domain.MobileDevice;
 import com.medicai.pillpal.domain.PatientInfo;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
