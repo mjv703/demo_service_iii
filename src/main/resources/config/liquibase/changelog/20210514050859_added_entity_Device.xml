@@ -13,19 +13,19 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="name" type="varchar(255)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="model" type="varchar(255)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="serial_no" type="varchar(255)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="patient_info_id" type="bigint">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
             <column name="prescription_id" type="bigint">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
@@ -43,9 +43,9 @@
     -->
     <changeSet id="20210514050859-1-data" author="jhipster" context="faker">
         <loadData
-                  file="config/liquibase/fake-data/device.csv"
-                  separator=";"
-                  tableName="device">
+            file="config/liquibase/fake-data/device.csv"
+            separator=";"
+            tableName="device">
             <column name="id" type="numeric"/>
             <column name="name" type="string"/>
             <column name="model" type="string"/>

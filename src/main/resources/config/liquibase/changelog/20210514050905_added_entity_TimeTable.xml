@@ -13,16 +13,16 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="start_datetime" type="${datetimeType}">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="end_date_time" type="${datetimeType}">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="is_taken" type="varchar(255)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="prescription_id" type="bigint">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
@@ -42,9 +42,9 @@
     -->
     <changeSet id="20210514050905-1-data" author="jhipster" context="faker">
         <loadData
-                  file="config/liquibase/fake-data/time_table.csv"
-                  separator=";"
-                  tableName="time_table">
+            file="config/liquibase/fake-data/time_table.csv"
+            separator=";"
+            tableName="time_table">
             <column name="id" type="numeric"/>
             <column name="start_datetime" type="${datetimeType}"/>
             <column name="end_date_time" type="${datetimeType}"/>

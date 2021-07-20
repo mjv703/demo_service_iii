@@ -176,6 +176,7 @@ public final class TestUtil {
 
     /**
      * Create a {@link FormattingConversionService} which use ISO date format, instead of the localized one.
+     *
      * @return the {@link FormattingConversionService}.
      */
     public static FormattingConversionService createFormattingConversionService() {
@@ -188,8 +189,9 @@ public final class TestUtil {
 
     /**
      * Makes a an executes a query to the EntityManager finding all stored objects.
-     * @param <T> The type of objects to be searched
-     * @param em The instance of the EntityManager
+     *
+     * @param <T>  The type of objects to be searched
+     * @param em   The instance of the EntityManager
      * @param clss The class type to be searched
      * @return A list of all found objects
      */

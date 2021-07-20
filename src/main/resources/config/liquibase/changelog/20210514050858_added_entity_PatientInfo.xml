@@ -13,52 +13,52 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="first_name" type="varchar(255)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="last_name" type="varchar(255)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="birth_date" type="${datetimeType}">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="id_no" type="varchar(255)">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
             <column name="address" type="varchar(255)">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
             <column name="phone_number_1" type="varchar(255)">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
             <column name="phone_number_2" type="varchar(255)">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
             <column name="email" type="varchar(255)">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
             <column name="height" type="integer">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
             <column name="age" type="integer">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
             <column name="weight" type="integer">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
             <column name="blood_type" type="varchar(255)">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
             <column name="marital_status" type="varchar(255)">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
             <column name="relationship_with_user" type="varchar(255)">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
             <column name="patient_image_url" type="varchar(255)">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
             <column name="user_info_id" type="bigint">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
@@ -77,9 +77,9 @@
     -->
     <changeSet id="20210514050858-1-data" author="jhipster" context="faker">
         <loadData
-                  file="config/liquibase/fake-data/patient_info.csv"
-                  separator=";"
-                  tableName="patient_info">
+            file="config/liquibase/fake-data/patient_info.csv"
+            separator=";"
+            tableName="patient_info">
             <column name="id" type="numeric"/>
             <column name="first_name" type="string"/>
             <column name="last_name" type="string"/>

@@ -13,19 +13,19 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="user_code" type="varchar(255)">
-                <constraints nullable="true" unique="true" uniqueConstraintName="ux_user_info__user_code" />
+                <constraints nullable="true" unique="true" uniqueConstraintName="ux_user_info__user_code"/>
             </column>
             <column name="phone_number_1" type="varchar(255)">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
             <column name="phone_number_2" type="varchar(255)">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
             <column name="address" type="varchar(255)">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
             <column name="user_id" type="bigint">
-                <constraints nullable="true" unique="true" uniqueConstraintName="ux_user_info__user_id" />
+                <constraints nullable="true" unique="true" uniqueConstraintName="ux_user_info__user_id"/>
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
@@ -43,9 +43,9 @@
     -->
     <changeSet id="20210514050857-1-data" author="jhipster" context="faker">
         <loadData
-                  file="config/liquibase/fake-data/user_info.csv"
-                  separator=";"
-                  tableName="user_info">
+            file="config/liquibase/fake-data/user_info.csv"
+            separator=";"
+            tableName="user_info">
             <column name="id" type="numeric"/>
             <column name="user_code" type="string"/>
             <column name="phone_number_1" type="string"/>

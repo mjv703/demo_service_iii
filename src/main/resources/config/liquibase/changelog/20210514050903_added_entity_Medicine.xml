@@ -13,31 +13,31 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="brand_name" type="varchar(255)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="generic_name" type="varchar(255)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="substance_name" type="varchar(255)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="manufacturer_name" type="varchar(255)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="product_ndc" type="varchar(255)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="package_ndc" type="varchar(255)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="rx" type="varchar(255)">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
             <column name="medic_rout" type="varchar(255)">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
             <column name="medic_image_url" type="varchar(255)">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
@@ -55,9 +55,9 @@
     -->
     <changeSet id="20210514050903-1-data" author="jhipster" context="faker">
         <loadData
-                  file="config/liquibase/fake-data/medicine.csv"
-                  separator=";"
-                  tableName="medicine">
+            file="config/liquibase/fake-data/medicine.csv"
+            separator=";"
+            tableName="medicine">
             <column name="id" type="numeric"/>
             <column name="brand_name" type="string"/>
             <column name="generic_name" type="string"/>

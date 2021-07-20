@@ -13,16 +13,16 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="name" type="varchar(255)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="store" type="varchar(255)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="address" type="varchar(255)">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
             <column name="phone_number" type="varchar(255)">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
@@ -40,9 +40,9 @@
     -->
     <changeSet id="20210514050902-1-data" author="jhipster" context="faker">
         <loadData
-                  file="config/liquibase/fake-data/pharmacy.csv"
-                  separator=";"
-                  tableName="pharmacy">
+            file="config/liquibase/fake-data/pharmacy.csv"
+            separator=";"
+            tableName="pharmacy">
             <column name="id" type="numeric"/>
             <column name="name" type="string"/>
             <column name="store" type="string"/>

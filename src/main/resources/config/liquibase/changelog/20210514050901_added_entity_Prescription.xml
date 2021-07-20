@@ -13,49 +13,49 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="prescription_code" type="varchar(255)">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
             <column name="bar_code" type="varchar(255)">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
             <column name="issue_date" type="${datetimeType}">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="usage_description" type="varchar(255)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="important_info" type="varchar(255)">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="qty" type="integer">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="has_refill" type="boolean">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
             <column name="refill_time" type="${datetimeType}">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
             <column name="prescription_image_url" type="varchar(255)">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
             <column name="medic_type" type="varchar(255)">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
             <column name="medic_color" type="varchar(255)">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
             <column name="status" type="varchar(255)">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
             <column name="patient_info_id" type="bigint">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
             <column name="medicine_id" type="bigint">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
             <column name="pharmacy_id" type="bigint">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
@@ -75,9 +75,9 @@
     -->
     <changeSet id="20210514050901-1-data" author="jhipster" context="faker">
         <loadData
-                  file="config/liquibase/fake-data/prescription.csv"
-                  separator=";"
-                  tableName="prescription">
+            file="config/liquibase/fake-data/prescription.csv"
+            separator=";"
+            tableName="prescription">
             <column name="id" type="numeric"/>
             <column name="prescription_code" type="string"/>
             <column name="bar_code" type="string"/>
