@@ -5,6 +5,7 @@ import com.medicai.pillpal.domain.enumeration.BloodType;
 import com.medicai.pillpal.domain.enumeration.MaritalStatusType;
 import java.io.Serializable;
 import java.time.Instant;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.*;
@@ -37,7 +38,7 @@ public class PatientInfo implements Serializable {
 
     @NotNull
     @Column(name = "birth_date", nullable = false)
-    private Instant birthDate;
+    private LocalDate birthDate;
 
     @Column(name = "id_no")
     private String idNo;
@@ -131,16 +132,16 @@ public class PatientInfo implements Serializable {
         this.lastName = lastName;
     }
 
-    public Instant getBirthDate() {
+    public LocalDate getBirthDate() {
         return this.birthDate;
     }
 
-    public PatientInfo birthDate(Instant birthDate) {
+    public PatientInfo birthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
         return this;
     }
 
-    public void setBirthDate(Instant birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 

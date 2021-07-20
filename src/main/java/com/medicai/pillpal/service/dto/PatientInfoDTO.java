@@ -4,6 +4,7 @@ import com.medicai.pillpal.domain.enumeration.BloodType;
 import com.medicai.pillpal.domain.enumeration.MaritalStatusType;
 import java.io.Serializable;
 import java.time.Instant;
+import java.time.LocalDate;
 import java.util.Objects;
 import javax.validation.constraints.NotNull;
 
@@ -21,7 +22,7 @@ public class PatientInfoDTO implements Serializable {
     private String lastName;
 
     @NotNull
-    private Instant birthDate;
+    private LocalDate birthDate;
 
     private String idNo;
 
@@ -73,11 +74,11 @@ public class PatientInfoDTO implements Serializable {
         this.lastName = lastName;
     }
 
-    public Instant getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Instant birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 

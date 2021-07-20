@@ -150,3 +150,5 @@ Desktop.ini
 # ESLint
 ######################
 .eslintcache
+
+/src/main/resources/project-mjv703-pill-pal-0001.json

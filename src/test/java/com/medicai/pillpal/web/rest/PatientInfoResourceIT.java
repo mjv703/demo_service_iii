@@ -13,6 +13,7 @@ import com.medicai.pillpal.repository.PatientInfoRepository;
 import com.medicai.pillpal.service.dto.PatientInfoDTO;
 import com.medicai.pillpal.service.mapper.PatientInfoMapper;
 import java.time.Instant;
+import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.Random;
@@ -41,8 +42,8 @@ class PatientInfoResourceIT {
     private static final String DEFAULT_LAST_NAME = "AAAAAAAAAA";
     private static final String UPDATED_LAST_NAME = "BBBBBBBBBB";
 
-    private static final Instant DEFAULT_BIRTH_DATE = Instant.ofEpochMilli(0L);
-    private static final Instant UPDATED_BIRTH_DATE = Instant.now().truncatedTo(ChronoUnit.MILLIS);
+    private static final LocalDate DEFAULT_BIRTH_DATE = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_BIRTH_DATE = LocalDate.now();
 
     private static final String DEFAULT_ID_NO = "AAAAAAAAAA";
     private static final String UPDATED_ID_NO = "BBBBBBBBBB";
