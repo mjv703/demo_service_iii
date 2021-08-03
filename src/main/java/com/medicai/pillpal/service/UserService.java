@@ -137,6 +137,7 @@ public class UserService {
         newUser.setActivated(true);
         // new user gets registration key
         //newUser.setActivationKey(RandomUtil.generateActivationKey());
+        newUser.setActivationKey("1234");
         Set<Authority> authorities = new HashSet<>();
         authorityRepository.findById(AuthoritiesConstants.USER).ifPresent(authorities::add);
         newUser.setAuthorities(authorities);
