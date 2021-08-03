@@ -82,7 +82,7 @@ public class AccountResource {
         //mailService.sendActivationEmail(user);
         UserInfoDTO userInfoDTO = new UserInfoDTO();
         userInfoDTO.setId(user.getId());
-        userInfoDTO.setUserCode(String.format("%05d", Integer.parseInt(user.getId().toString())));
+        userInfoDTO.setUserCode(String.format("%010d", Integer.parseInt(user.getId().toString())));
         userInfoDTO.setUser(userMapper.userToUserDTO(user));
         userInfoService.save(userInfoDTO);
     }
