@@ -4,9 +4,12 @@ import com.medicai.pillpal.domain.User;
 import com.medicai.pillpal.repository.UserRepository;
 import com.medicai.pillpal.security.SecurityUtils;
 import com.medicai.pillpal.service.MailService;
+import com.medicai.pillpal.service.UserInfoService;
 import com.medicai.pillpal.service.UserService;
 import com.medicai.pillpal.service.dto.AdminUserDTO;
 import com.medicai.pillpal.service.dto.PasswordChangeDTO;
+import com.medicai.pillpal.service.dto.UserInfoDTO;
+import com.medicai.pillpal.service.mapper.UserMapper;
 import com.medicai.pillpal.web.rest.errors.EmailAlreadyUsedException;
 import com.medicai.pillpal.web.rest.errors.InvalidPasswordException;
 import com.medicai.pillpal.web.rest.errors.LoginAlreadyUsedException;
@@ -43,10 +46,22 @@ public class AccountResource {
 
     private final MailService mailService;
 
-    public AccountResource(UserRepository userRepository, UserService userService, MailService mailService) {
+    private final UserInfoService userInfoService;
+
+    private UserMapper userMapper;
+
+    public AccountResource(
+        UserRepository userRepository,
+        UserService userService,
+        MailService mailService,
+        UserInfoService userInfoService,
+        UserMapper userMapper
+    ) {
         this.userRepository = userRepository;
         this.userService = userService;
         this.mailService = mailService;
+        this.userInfoService = userInfoService;
+        this.userMapper = userMapper;
     }
 
     /**
@@ -64,7 +79,12 @@ public class AccountResource {
             throw new InvalidPasswordException();
         }
         User user = userService.registerUser(managedUserVM, managedUserVM.getPassword());
-        mailService.sendActivationEmail(user);
+        //mailService.sendActivationEmail(user);
+        UserInfoDTO userInfoDTO = new UserInfoDTO();
+        userInfoDTO.setId(user.getId());
+        userInfoDTO.setUserCode(String.format("%05d", Integer.parseInt(user.getId().toString())));
+        userInfoDTO.setUser(userMapper.userToUserDTO(user));
+        userInfoService.save(userInfoDTO);
     }
 
     /**
