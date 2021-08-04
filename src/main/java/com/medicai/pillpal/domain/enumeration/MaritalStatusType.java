@@ -5,4 +5,5 @@ package com.medicai.pillpal.domain.enumeration;
  */
 public enum MaritalStatusType {
     SINGLE,
+    MARRIED,
 }
